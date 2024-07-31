@@ -1,0 +1,9 @@
+{% extends 'suggestions/base.html' %}
+{% block content %}
+<h1> Tell us how we can improve </h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}
