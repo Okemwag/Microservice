@@ -1,9 +1,92 @@
 {% extends 'suggestions/base.html' %}
 {% block content %}
-<h1> Tell us how we can improve </h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<div class="suggestion-form-container">
+    <h1 class="suggestion-title">Tell us how we can improve</h1>
+    <form method="POST" class="suggestion-form">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <p class="form-error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
+
+<style>
+    .suggestion-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .suggestion-title {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .suggestion-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .suggestion-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .suggestion-form input[type="text"],
+    .suggestion-form input[type="email"],
+    .suggestion-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .suggestion-form textarea {
+        height: 150px;
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .form-error {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .submit-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-button:hover {
+        background-color: #0056b3;
+    }
+</style>
 {% endblock content %}
