@@ -2,4 +2,3 @@
 django==5.0.1
 gunicorn==21.2.0
 Bm3Ce4dTUzwIfPNT
-mongodb+srv://Okemwag:Bm3Ce4dTUzwIfPNT@subscription.ipzhg.mongodb.net/

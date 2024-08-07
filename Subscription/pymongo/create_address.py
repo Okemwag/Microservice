@@ -1,7 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-con = "mongodb+srv://Okemwag:Bm3Ce4dTUzwIfPNT@subscription.ipzhg.mongodb.net/?retryWrites=true&w=majority"
+con = "mongodb+srv://Okemwag:<Password>@subscription.ipzhg.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(con, server_api=ServerApi('1'))
 db = client["Subscription"]
 col = db["subscription_address"]
