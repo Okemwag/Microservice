@@ -13,7 +13,3 @@ This project demonstrates how to implement a reactive microservice architecture 
 
 - Python 3.10+
 - Docker 
-
-## Setup
-
-1. Clone the repository:
